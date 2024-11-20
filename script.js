@@ -15,20 +15,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
   finalDiv.textContent = "0";
   counter3.appendChild(finalDiv);
 
-  function animate(counter, dureation, delay = 0) {
-    const numHeight = counter.querySelector(".num");
-    clientHeight;
-    const totalDistance = counter.querySelectorAll(".num").length - 1;
+  function animate(counter, duration, delay = 0) {
+    const numHeight = counter.querySelector(".num").clientHeight;
+    const totalDistance =
+      (counter.querySelectorAll(".num").length - 1) * numHeight;
 
     gsap.to(counter, {
       y: -totalDistance,
-      dureation: dureation,
+      dureation: duration,
       delay: delay,
       ease: "power2.inOut",
     });
-
-    animate(counter3, 5);
-    animate(document.querySelector(".counter-2"), 6);
-    animate(document.querySelector(".counter-1"), 2, 4);
   }
+
+  animate(counter3, 5);
+  animate(document.querySelector(".counter-2"), 6);
+  animate(document.querySelector(".counter-1"), 2, 4);
 });
